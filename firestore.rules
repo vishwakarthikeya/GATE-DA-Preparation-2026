@@ -1,0 +1,31 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isOwner(uid) {
+      return request.auth != null
+        && request.auth.uid == uid
+        && exists(
+          /databases/$(database)/documents/owners/$(uid)
+        );
+    }
+
+    match /owners/{ownerId} {
+      allow read, write: if false;
+    }
+
+    match /users/{userId}/sections/{sectionId}/{collectionId}/{recordId} {
+      allow read, delete: if isOwner(userId);
+      allow create: if isOwner(userId)
+        && collectionId in ['tasks', 'resources', 'notes', 'shortNotes', 'progress']
+        && request.resource.data.ownerId == userId
+        && request.resource.data.sectionId == sectionId;
+      allow update: if isOwner(userId)
+        && collectionId in ['tasks', 'resources', 'notes', 'shortNotes', 'progress']
+        && request.resource.data.ownerId == userId
+        && request.resource.data.sectionId == sectionId
+        && resource.data.ownerId == userId
+        && resource.data.sectionId == sectionId;
+    }
+  }
+}

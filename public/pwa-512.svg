@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="GATE DA Preparation">
+  <rect width="512" height="512" rx="104" fill="#103e5b"/>
+  <path d="M112 128h203c48 0 85 37 85 85v171H197c-48 0-85-37-85-85V128z" fill="#1b858a"/>
+  <path d="M256 166v200M152 195h75M285 195h75M152 243h75M285 243h75M152 291h75M285 291h75" stroke="#edfafa" stroke-width="21" stroke-linecap="round"/>
+  <circle cx="336" cy="336" r="61" fill="#d5f6f5"/><path d="M309 336l19 19 37-46" fill="none" stroke="#103e5b" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

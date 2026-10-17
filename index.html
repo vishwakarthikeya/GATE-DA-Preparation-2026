@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#103e5b" />
+    <meta name="description" content="A private GATE 2027 Data Science and Artificial Intelligence study workspace." />
+    <link rel="icon" type="image/png" href="%BASE_URL%pwa-192.png" />
+    <title>GATE DA Preparation</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (() => {
+        const next = new URLSearchParams(location.search).get('p');
+        if (next) history.replaceState(null, '', next + location.hash);
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
